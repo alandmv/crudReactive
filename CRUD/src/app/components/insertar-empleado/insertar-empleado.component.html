@@ -1,0 +1,26 @@
+<div class="container">
+    <form class="form-control" [formGroup] ="formularioEmpleado" >
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" aria-describedby="emailHelp" formControlName="nombre">
+          </div>
+          <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" formControlName="apellido">
+          </div>
+          <div class="mb-3">
+            <label for="cargo" class="form-label">Cargo</label>
+            <input type="text" class="form-control" formControlName="cargo">
+          </div>
+          <div class="mb-3 form-floating">
+            <select class="form-select" aria-label="Floating label select example" formControlName="pais"> 
+              <option selected>Seleccionar País</option>
+              <option value= {{pais}} *ngFor="let pais of listaDePaises; let i = index"> {{pais}} </option>
+            </select>
+            <label for="floatingSelect">Seleccione un País</label>
+          </div>
+          <button type="submit" class="btn btn-success" (click)="agregarEmpleado()" [disabled]="formularioEmpleado.invalid" >Agregar</button>
+    </form>
+</div>
+
+<app-listar-empleado-component></app-listar-empleado-component>
